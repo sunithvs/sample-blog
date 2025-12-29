@@ -3,26 +3,27 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
+      // Blog home
       {
-        // This handles the main blog page (ottamind.in)
         source: "/blog",
         destination: "https://blog.ottamind.in",
       },
+
+      // Blog posts & pages
       {
-        // This handles posts (e.g., ottamind.in/privacy-policy)
         source: "/blog/:path*",
-        destination: "blog.ottamind.in*",
+        destination: "https://blog.ottamind.in/:path*",
       },
+
+      // WordPress assets
       {
-        // This handles the CSS/JS files so the UI looks correct
         source: "/wp-content/:path*",
-        destination: "blog.ottamind.in*",
+        destination: "https://blog.ottamind.in/wp-content/:path*",
       },
       {
-        // This handles WordPress core system files
         source: "/wp-includes/:path*",
-        destination: "blog.ottamind.in*",
-      }
+        destination: "https://blog.ottamind.in/wp-includes/:path*",
+      },
     ];
   },
 };
