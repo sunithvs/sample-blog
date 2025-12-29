@@ -3,13 +3,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
+      // Rule 1: Matches the exact /blogs path (the blog homepage)
       {
-        source: "/blogs/:slug*",
-        destination: "https://blogs.ottamind.in/blogs/:slug*",
+        source: "/blogs",
+        destination: "https://blogs.ottamind.in",
       },
+      // Rule 2: Matches all sub-paths (posts, categories, assets)
       {
-        source: "/:match*",
-        destination: "https://blog.ottamind.in/:match*",
+        source: "/blogs/:path*",
+        destination: "https://blogs.ottamind.in/:path*",
       },
     ];
   },
