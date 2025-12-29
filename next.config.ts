@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/blogs/:slug*",
-        destination: "https://blog.ottamind.in/:slug*",
+        destination: "https://blog.ottamind.in/blogs/:slug*",
       }
     ];
   },
